@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:matunda/constants/colors.dart';
 
-const _backgroundColor = Color(0XFFF6F5F2);
+import '../widgets/custom_appbar_bart.dart';
 
-class AppHomePage extends StatelessWidget {
+class AppHomePage extends StatefulWidget {
   const AppHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<AppHomePage> createState() => _AppHomePageState();
+}
+
+class _AppHomePageState extends State<AppHomePage> {
+
+  var selected = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackground,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            color: _backgroundColor,
-            child: Row(
-              children: const [
-                BackButton(
-                  color: Colors.black,
-                ),
-                SizedBox(width: 10,),
-                Expanded(child: Text(
-                  "Vegetables and Fruits",
-                  style: TextStyle(
-                    color: Colors.black
-                  ),
-                ))
-              ],
+          Row(
+            children:  [
+            CustomizedAppBar(
+              Icons.arrow_back_ios,
+              Icons.search_outlined
             ),
+
+            ],
           )
         ],
       ),

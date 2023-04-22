@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:matunda/screens/home_page.dart';
 
 void main() {
@@ -11,13 +12,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      home: const AppHomePage(),
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent
+    ));
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Matunda',
+      home: AppHomePage(),
     );
   }
 }
